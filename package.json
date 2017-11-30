@@ -1,0 +1,39 @@
+{
+  "name": "scrapeandsave",
+  "version": "1.0.0",
+  "description": "Scrapes articles from a news site and allows users to publicly save and leave notes on selected articles.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "nonstop": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zeeroh0/ScrapeAndSave.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Node.js",
+    "Express",
+    "Handlebars",
+    "Cheerio",
+    "Request",
+    "Scraping",
+    "persistent"
+  ],
+  "author": "Tyler Mitchell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zeeroh0/ScrapeAndSave/issues"
+  },
+  "homepage": "https://github.com/Zeeroh0/ScrapeAndSave#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mongojs": "^2.4.1",
+    "mongoose": "^4.13.4",
+    "request": "^2.83.0"
+  }
+}

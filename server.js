@@ -34,12 +34,13 @@ mongoose.connect(db, (error) => {
         console.log(`mongoose connected to database successfully!`);
 });
 
-
 app.use(router);
 
-app.get("/", (req, res) => {
-    res.send("Welcome to the scrape and save site!");
-});
+require("./config/routes.js")(router);
+
+// app.get("/", (req, res) => {
+//     res.send("Welcome to the scrape and save site!");
+// });
 
 app.listen(PORT, () => {
     console.log("Listening on port:", PORT);

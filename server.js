@@ -11,6 +11,11 @@ const app = express(),
 
 const PORT = process.env.PORT || 8080;
 
+// Keep Heroku live
+setInterval(() => {
+  request('https://morning-meadow-19271.herokuapp.com/', (err, res, html) => {});
+  }, 1800000);
+
 // Set up Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");

@@ -96,6 +96,7 @@ $(document).ready(() => {
 
 		$.get('/api/notes/'+currentArticle._id)
 			.then((data) => {
+				console.log(data);
 				let modalText = [
 					'<div class="container-fluid text-center">',
 						'<h4>Notes for Article: ',
@@ -149,6 +150,7 @@ $(document).ready(() => {
 				notesToRender.push(currentNote);
 			}
 		}
+		$('.note-container').append(notesToRender);
 	};
 
 	function handleNoteSave() {
@@ -162,12 +164,11 @@ $(document).ready(() => {
 				noteText: newNote
 			};
 
-			console.log('New note:', noteData);
-
-			$.post('/api/notes', noteData)
-				.then((data) => {
-					console.log('Posted this note:', noteData.noteText);
-					console.log('note posted return data:', data);
+			$.ajax({
+				url: '/api/notes',
+				method: 'POST',
+				data: noteData
+			}).then(() => {
 					bootbox.hideAll();
 				});
 		}
@@ -175,6 +176,7 @@ $(document).ready(() => {
 
 	function handleNoteDelete() {
 		let noteToDelete = $(this).data('_id');
+		console.log('noteToDelete', noteToDelete);
 
 		$.ajax({
 			url: '/api/notes/'+noteToDelete,

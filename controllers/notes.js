@@ -8,7 +8,6 @@ module.exports = {
 		Note.find({_headlineId: data._id}, cb);
 	},
 	save: (data, cb) => {
-		console.log('new note data', data);
 		let newNote = {
 			_headlineId: data._id,
 			date: makeDate(),
@@ -20,7 +19,8 @@ module.exports = {
 				console.log(err);
 			} else {
 				console.log(doc);
-				cb(doc);
+				Note.collection.insert(newNote, {ordered: false}, (err, docs) => { cb(err, docs) })
+				// cb(doc);
 			}
 		});
 	},

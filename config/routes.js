@@ -64,9 +64,9 @@ module.exports = (router) => {
 		});
 	});
 
-	router.delete('/api/notes/:id', () => {
+	router.delete('/api/notes/:_id', (req, res) => {
 		let query = {};
-		query._id = req.params.id;
+		query._id = req.params._id;
 
 		notesController.delete(query, (err, data) => {
 			res.json(data);
@@ -74,7 +74,6 @@ module.exports = (router) => {
 	});
 
 	router.post('/api/notes', (req, res) => {
-		console.log('Attempting to save new note with req.body:', req.body);
 		notesController.save(req.body, (err, data) => {
 			res.json(data);
 		});

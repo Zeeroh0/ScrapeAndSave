@@ -1,7 +1,120 @@
-h1 {
-	color: red;
+html {
+	min-height: 100%;
+	position: relative;
 }
-
-h2 {
-	color: blue;
+body {
+/*	background-image: url("../images/paper.png");
+*/	margin-bottom: 80px;
+}
+.footer {
+	background-color: #f5f5f5;
+	bottom: 0;
+	height: 80px;
+	position: absolute;
+	width: 100%;
+}
+.navbar {
+	margin-bottom: 0;
+}
+.jumbotron {
+	position: relative;
+	width: 100%;
+	height: 500px;
+	font-family: "Cormorant SC";
+	padding: 0;
+	box-shadow: 10px 5px 20px 2px lightslategrey;
+}
+.jumbotron .overlay {
+	background: linear-gradient(#333, black);
+	position: absolute;
+	opacity: 0.7;
+	z-index: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.jumbotron .background-image {
+	height: 100%;
+/*	background-image: url("../images/newspaper.jpg");
+*/	background-size: cover;
+}
+.jumbotron .caption {
+	position: absolute;
+	top: 30%;
+	width: 100%;
+	text-align: center;
+}
+.jumbotron .caption h1,
+.jumbotron .caption p {
+	color: white;
+}
+.jumbotron h1 {
+	font-weight: 800;
+	font-size: 80px;
+}
+.jumbotron p {
+	font-size: 30px;
+}
+.panel {
+	border-radius: 0;
+	box-shadow: 3px 3px 20px lightslategrey;
+}
+.panel.panel-default .panel-heading {
+	background-color: #2196f3;
+}
+.panel.panel-default .panel-heading h3 {
+	color: white;
+}
+.panel.panel-default .panel-heading .btn {
+	float: right;
+	margin: 0px 5px 50px 5px;
+}
+.panel.panel-default .panel-body {
+	font-size: 16px;
+}
+.footer {
+	background-color: #2196f3;
+}
+.footer .container p {
+	font-size: 14px;
+}
+.footer>.container>p {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: #2672ce;
+	padding: 10px;
+	margin: auto;
+	width: 100%;
+}
+.article-link {
+	color: white;
+}
+.navbar-inverse .navbar-nav>li>a.scrape-new:hover {
+	background: #4caf50;
+}
+.navbar-inverse .navbar-nav>li>a.scrape-new:active {
+	background: #e51c23;
+}
+.scrape-new {
+	cursor: pointer;
+}
+.m-top-80 {
+	margin-top: 80px;
+}
+textarea {
+	resize: none;
+	padding: 10px;
+}
+.bootbox-body .btn {
+	float: right;
+	margin: 5px;
+}
+.note.list-group-item {
+	padding: 30px;
+}
+.note.list-group-item .btn {
+	position: relative;
+	bottom: 10px;
 }

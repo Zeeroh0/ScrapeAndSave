@@ -86,7 +86,6 @@ $(document).ready(()=>{
 			data: articleToSave
 		})
 			.then((data) => {
-				console.log("Saving an article. Here's the data response from the PATCH ajax call:", data);
 				if (data.ok) {
 					initPage();
 				}

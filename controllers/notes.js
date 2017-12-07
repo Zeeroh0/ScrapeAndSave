@@ -8,6 +8,7 @@ module.exports = {
 		Note.find({_headlineId: data._id}, cb);
 	},
 	save: (data, cb) => {
+		console.log('new note data', data);
 		let newNote = {
 			_headlineId: data._id,
 			date: makeDate(),

@@ -40,8 +40,11 @@ $(document).ready(() => {
 			$(['<div class="panel panel-default">',
 					'<div class="panel-heading">',
 						'<h3>',
-							article.headline,
-							'<a class="btn btn-success save">Save Article</a>',
+							'<a href="'+article.url+'" class="article-link">',
+								article.headline,
+							'</a>',
+							'<a class="btn btn-danger delete">Delete from Saved</a>',
+							'<a class="btn btn-info notes">Article Notes</a>',
 						'</h3>',
 					'</div>',
 					'<div class-"panel-body">',
@@ -78,8 +81,8 @@ $(document).ready(() => {
 		let articleToDelete = $(this).parents('.panel').data();
 
 		$.ajax({
-			method: 'DELTE',
-			url: '/api/headlines' + articleToDelete._id
+			method: 'DELETE',
+			url: '/api/headlines/' + articleToDelete._id
 		})
 			.then((data) => {
 				if (data.ok) {
@@ -91,7 +94,7 @@ $(document).ready(() => {
 	function handleArticleNotes() {
 		let currentArticle = $(this).parents('.panel').data();
 
-		$.get('/api/notes'+currentArticle._id)
+		$.get('/api/notes/'+currentArticle._id)
 			.then((data) => {
 				let modalText = [
 					'<div class="container-fluid text-center">',
@@ -101,7 +104,7 @@ $(document).ready(() => {
 						'<hr />',
 						'<ul class="list-group note-container">',
 						'</ul>',
-						'<textarea placeholder="New Note" rows="4" cols="60"></textarea>',
+						'<textarea class="bootbox-body" placeholder="New Note" rows="4" cols="60"></textarea>',
 						'<button class="btn btn-success save">Save Note</button>',
 					'</div>'
 				].join("");
@@ -150,7 +153,8 @@ $(document).ready(() => {
 
 	function handleNoteSave() {
 		let noteData;
-		let newNOte = $('.bootbox-body textarea').val().trim();
+		let newNote = $('.bootbox-body textarea').val().trim();
+
 
 		if (newNote) {
 			noteData = {
@@ -158,8 +162,12 @@ $(document).ready(() => {
 				noteText: newNote
 			};
 
+			console.log('New note:', noteData);
+
 			$.post('/api/notes', noteData)
-				.then(() => {
+				.then((data) => {
+					console.log('Posted this note:', noteData.noteText);
+					console.log('note posted return data:', data);
 					bootbox.hideAll();
 				});
 		}

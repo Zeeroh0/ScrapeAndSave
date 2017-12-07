@@ -29,7 +29,6 @@ module.exports = (router) => {
 
 	router.get('/api/headlines', (req, res) => {
 		let query = {};
-		console.log("req:", req);
 		if (req.query.saved) {
 			query = req.query
 		} 
@@ -75,6 +74,7 @@ module.exports = (router) => {
 	});
 
 	router.post('/api/notes', (req, res) => {
+		console.log('Attempting to save new note with req.body:', req.body);
 		notesController.save(req.body, (err, data) => {
 			res.json(data);
 		});

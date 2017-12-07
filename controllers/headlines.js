@@ -24,8 +24,8 @@ module.exports = {
 	},
 	update: (query, cb) => {
 		Headline.update(
-			{_id: query._id},
-			{$set: query},
+			{ _id: query._id },
+			{ $set: { saved: query.save }},
 			{},
 			cb
 		);
